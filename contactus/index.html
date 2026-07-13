@@ -795,5 +795,66 @@ Bintang Bukit Bintang, 55100 Kuala Lumpur, Malaysia.
 <script src="../../scss.npcdn.net/ex_cusscss/np_popper.minfc76.js?ref=1" async></script>
 
 
+
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const form = this;
+
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.innerHTML = "Sending...";
+
+    const formData = {
+        Fname: form.Fname.value,
+        Fcontact_number: form.Fcontact_number.value,
+        Femail: form.Femail.value,
+        Fmessage: form.Fmessage.value
+    };
+
+    try{
+
+        const response = await fetch("/api/contact",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(formData)
+
+        });
+
+        const result = await response.json();
+
+        if(result.success){
+
+            alert("Thank you! Your message has been sent.");
+
+            form.reset();
+
+        }else{
+
+            alert(result.message || "Unable to send message.");
+
+        }
+
+    }catch(error){
+
+        alert("An error occurred while sending your message.");
+
+    }
+
+    button.disabled = false;
+
+    button.innerHTML = "Send Message";
+
+});
+</script>
   </body>
 </html>

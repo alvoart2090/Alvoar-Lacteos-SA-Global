@@ -1,0 +1,173 @@
+.jslideup{
+	animation-name: jslideup;
+	-webkit-animation-name: jslideup;	
+
+	animation-duration: 2s;	
+	-webkit-animation-duration: 2s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;			
+}
+@keyframes jslideup {
+	from {
+		transform: translateY(15%);
+		opacity:0.0;
+	}
+	to{
+		transform: translateY(0%);
+		opacity:1;
+	}
+}
+@-webkit-keyframes jslideup {
+	from {
+		-webkit-transform: translateY(15%);
+		opacity:0.0;		
+	}
+	to{
+		-webkit-transform: translateY(0%);
+		opacity:1;
+	}
+	
+}
+
+.jslidedown{
+	animation-name: jslidedown;
+	-webkit-animation-name: jslidedown;	
+
+	animation-duration: 2s;	
+	-webkit-animation-duration: 2s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;			
+}
+@keyframes jslidedown {
+	from {
+		transform: translateY(-15%);
+		opacity:0.0;
+	}
+	to{
+		transform: translateY(0%);
+		opacity:1;
+	}
+}
+@-webkit-keyframes jslidedown {
+	from {
+		-webkit-transform: translateY(-15%);
+		opacity:0.0;		
+	}
+	to{
+		-webkit-transform: translateY(0%);
+		opacity:1;
+	}
+	
+}
+
+.jslideleft{
+	animation-name: jslideleft;
+	-webkit-animation-name: jslideleft;	
+
+	animation-duration: 2s;	
+	-webkit-animation-duration: 2s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;			
+}
+@keyframes jslideleft {
+	from {
+		transform: translateX(-15%);
+		opacity:0.0;
+	}
+	to{
+		transform: translateX(0%);
+		opacity:1;
+	}
+}
+@-webkit-keyframes jslideleft {
+	from {
+		-webkit-transform: translateX(-15%);
+		opacity:0.0;		
+	}
+	to{
+		-webkit-transform: translateX(0%);
+		opacity:1;
+	}
+	
+}
+.jslideright{
+	animation-name: jslideright;
+	-webkit-animation-name: jslideright;	
+
+	animation-duration: 2s;	
+	-webkit-animation-duration: 2s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;			
+}
+@keyframes jslideright {
+	from {
+		transform: translateX(15%);
+		opacity:0.0;
+	}
+	to{
+		transform: translateX(0%);
+		opacity:1;
+	}
+}
+@-webkit-keyframes jslideright {
+	from {
+		-webkit-transform: translateX(15%);
+		opacity:0.0;
+	}
+	to{
+		-webkit-transform: translateX(0%);
+		opacity:1;
+	}
+}
+.jfadeIn{
+	animation-name: jfadeIn;
+	-webkit-animation-name: jfadeIn;	
+
+	animation-duration: 1.5s;	
+	-webkit-animation-duration: 1.5s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+
+	visibility: visible !important;	
+}
+@keyframes jfadeIn {
+	from {
+		transform: scale(1);
+		opacity: 0.0;		
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;		
+	}
+		
+}
+@-webkit-keyframes jfadeIn {
+	from {
+		transform: scale(1);
+		opacity: 0.0;		
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;		
+	}
+		
+}
+.hidden{
+     opacity:0;
+}
+.visible{
+     opacity:1;
+}

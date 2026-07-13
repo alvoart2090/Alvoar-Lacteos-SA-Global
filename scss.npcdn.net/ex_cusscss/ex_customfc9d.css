@@ -1,0 +1,163 @@
+body{overflow-x:hidden}.editorContent img{max-width:100%!important;height:auto!important;}.mb_10{margin-bottom:10px}.badge-ongoing{color:#fff;background-color:#1cc88a}.promotion-badge{font-size:10px!important;margin-top:-10px;vertical-align:middle}.img-responsive{display:block;width:100%;height:auto}.ws_section_default_height{min-height:600px}.ex_cont{padding-right:15px;padding-left:15px;max-width:1280px;margin:0 auto}#toTop{position:fixed;bottom:0;z-index:1;cursor:pointer;background-color:#fff;border-radius:15px;box-shadow:0 0 2px rgba(0,0,0,.8);height:30px;width:30px;margin-bottom:20px;display:none;opacity:.7}@media only screen and (min-width:992px){#toTop{right:0;margin-right:20px}}@media only screen and (max-width:992px){#toTop{left:50%;transform:translate(-50%,0)}}.big-whatsapp-custom-btn{text-decoration:none!important;color:#787878;font-weight:500;display:inline-block}.whatsapp-custom-btn{display:flex;width:fit-content;width:-moz-fit-content;height:64px;border-radius:32px;background-color:#34a853;color:#fff}.whatsapp-custom-btn div{padding:7px 35px 0 7px}.whatsapp-custom-btn p{line-height:26px;color:#fff;font-size:.9rem;font-weight:700;margin-bottom:0}.whatsapp-custom-btn i{font-size:38px;line-height:64px;text-align:center;margin-left:20px;margin-right:10px;display:block}.platinum_star{color:#fdcc0d}.general_product_list_sold{text-align:right;margin-bottom: 10px;}.general_product_list_sold .platinum_star{font-size:65%}.general_product_list_sold .product_list_sold_title{margin-left:3px;font-size:90%}.ws_service .service_content img{max-width: 100%!important;object-fit: contain!important;height: auto!important;}table th{text-align: center;}.platinum_website_visitor{display: inline;}.fa-crown{color: #f3c70d;}
+#close_npsn{
+    background-color:transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#close_npsn i{
+    color:#AEAEAE;
+}
+.NPSN_popup a{
+	text-decoration: none!important;
+}
+.NPSN_popup{
+    display: none;
+    position:fixed;
+    width:330px;
+    height:100px;
+    bottom:0px;
+    border: 1px solid #f3f3f3;
+    /* left:50%;
+    transform: translate(-50%,-40px); */
+    left: 20px;
+    transform: translate(0,-40px);
+    background-color:white;
+    color:#333;
+    border-radius:8px;
+    text-align:center;
+    box-shadow: 2px 2px 2px #999;
+    z-index: 2199;
+    font-size: 13px;
+    max-width: 420px;
+}
+#NPSN_id .text-truncate{
+    font-size: 12px;
+    color: #6c757d!important;
+}
+@-webkit-keyframes popFadeInUp {
+    0% {
+        opacity: 0;
+        bottom:-150px;
+    }
+    100% {
+        opacity: 1;
+        bottom:0px;
+    }
+}
+@keyframes popFadeInUp {
+    0% {
+        opacity: 0;
+        bottom:-150px;
+    }
+    100% {
+        opacity: 1;
+        bottom:0px;
+    }
+}
+.popfadeInUp {
+    -webkit-animation: popFadeInUp 500ms ease-in-out; /* Chrome, Safari, Opera */
+    animation: popFadeInUp 500ms ease-in-out;
+}
+.popfadeOutDown {
+    -webkit-animation: popFadeOutDown 600ms ease-in-out; /* Chrome, Safari, Opera */
+    animation: popFadeOutDown 600ms ease-in-out;
+}
+
+@-webkit-keyframes popFadeOutDown {
+    0% {
+        opacity: 1;
+        bottom:0px;
+        display: block;
+    }
+    100% {
+        opacity: 0;
+        bottom:-150px;
+        display: block;
+    }
+}
+@keyframes popFadeOutDown {
+    0% {
+        opacity: 1;
+        bottom:0px;
+        display: block;
+    }
+    100% {
+        opacity: 0;
+        bottom:-150px;
+        display: block;
+    }
+}
+
+
+.NPSN_message{
+    display: flex;
+}
+.NPSN_message .img_frame{
+    height: 0;
+    width: 100px;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.NPSN_img{
+    height: 100%;
+}
+.NPSN_message img {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 100px;
+    width: 100%;
+    background-color: #fdead196;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+.NPSN_message .highlighted{
+    font-weight: bold;
+    -webkit-line-clamp: 2;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.NPSN_description{
+    width: 248px;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#NPSN_date{
+    font-size: 10px;
+    bottom: 8px;
+    position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+  .NPSN_popup{
+        width:320px;
+    }
+}
+
+.languagebar_divider:last-child {
+  display: none;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #333!important;
+    border:1px solid #808080!important;
+    background-color:white!important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    content: '\2714';
+    font-size: 13px;
+    left: -21px;
+    color: #333;
+    top: 0.2rem;
+}

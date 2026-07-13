@@ -353,39 +353,82 @@
                 <div class="row flex-md-row-reverse">
                     <!-- Contact Form -->
                     <div class="col-12 col-md-8 mb_10">
-                        <form class="contact_form h-100" method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                
-                                <div class="form-group float-label-control col-12">
-                                    <label class="label-helper" for="Fname">Name*</label>
-                                    <input class="form-control" type="text" id="wscontact_fname" name="Fname" placeholder="Enter name here" value='' required>
-                                </div>
-                                <!-- <div class="form-group float-label-control col-12">
-                                    <label class="label-helper" for="Cname">Company Name</label>
-                                    <input class="form-control" type="text" name="Cname" placeholder="Company Name">
-                                </div> -->
-                                <div class="form-group float-label-control col-12 col-md-6">
-                                    <label class="label-helper" for="contact_number">Contact Number*</label>
-                                    <input class="form-control" type="text" placeholder="Enter contact number here" name="Fcontact_number" value='' required id="wscontact_fcontact">
-                                </div>
-                                <div class="form-group float-label-control col-12 col-md-6">
-                                    <label class="label-helper" for="email">Email*</label>
-                                    <input class="form-control" type="email" placeholder="Enter email address here" name="Femail" 
-                                    value='' id="wscontact_femail" required>
-                                </div>
-                               
-                                <div class="form-group float-label-control col-12">
-                                    <label class="label-helper" for="message">Message (optional)</label>
-                                    <textarea class="form-control" name="Fmessage" placeholder="Enter message here"></textarea>
-                                </div>
-                                
-                            </div>
-                            <div class="d-flex">
-                                <div class="bottom mb_10">
-                                    <button class="btn btn-primary h-100" type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
+                        <form id="contactForm"
+      class="contact_form h-100"
+      action="https://api.web3forms.com/submit"
+      method="POST">
+
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="93269ab9-847f-4c4e-868a-1a623900f4e7">
+
+    <!-- Email Subject -->
+    <input type="hidden" name="subject" value="New Contact Form Submission - Alvoar Lacteos SA Global">
+
+    <!-- Sender Name -->
+    <input type="hidden" name="from_name" value="Alvoar Lacteos SA Global Website">
+
+    <!-- Honeypot Spam Protection -->
+    <input type="checkbox" name="botcheck" style="display:none;">
+
+    <div class="row">
+
+        <div class="form-group float-label-control col-12">
+            <label class="label-helper" for="name">Name*</label>
+            <input
+                class="form-control"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter name here"
+                required>
+        </div>
+
+        <div class="form-group float-label-control col-12 col-md-6">
+            <label class="label-helper" for="phone">Contact Number*</label>
+            <input
+                class="form-control"
+                type="text"
+                id="phone"
+                name="phone"
+                placeholder="Enter contact number here"
+                required>
+        </div>
+
+        <div class="form-group float-label-control col-12 col-md-6">
+            <label class="label-helper" for="email">Email*</label>
+            <input
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter email address here"
+                required>
+        </div>
+
+        <div class="form-group float-label-control col-12">
+            <label class="label-helper" for="message">Message (Optional)</label>
+            <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Enter message here"></textarea>
+        </div>
+
+    </div>
+
+    <!-- Success / Error Message -->
+    <div id="form-result" class="mt-3"></div>
+
+    <div class="d-flex">
+        <div class="bottom mb_10">
+            <button id="submitBtn" class="btn btn-primary h-100" type="submit">
+                Send Message
+            </button>
+        </div>
+    </div>
+
+</form>
                     </div>
                     <!-- Contact Form End -->
                     <!-- Address -->
@@ -794,64 +837,63 @@ Bintang Bukit Bintang, 55100 Kuala Lumpur, Malaysia.
 </script>
 <script src="../../scss.npcdn.net/ex_cusscss/np_popper.minfc76.js?ref=1" async></script>
 
-
-
-
 <script>
-document.getElementById("contactForm").addEventListener("submit", async function(e){
+const form = document.querySelector(".contact_form");
+
+form.addEventListener("submit", async function(e) {
 
     e.preventDefault();
 
-    const form = this;
-
     const button = form.querySelector("button");
+    const result = document.getElementById("form-result");
 
     button.disabled = true;
     button.innerHTML = "Sending...";
 
-    const formData = {
-        Fname: form.Fname.value,
-        Fcontact_number: form.Fcontact_number.value,
-        Femail: form.Femail.value,
-        Fmessage: form.Fmessage.value
-    };
+    result.innerHTML = "";
 
-    try{
+    const formData = new FormData(form);
 
-        const response = await fetch("/api/contact",{
+    try {
 
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify(formData)
-
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
         });
 
-        const result = await response.json();
+        const data = await response.json();
 
-        if(result.success){
+        if (data.success) {
 
-            alert("Thank you! Your message has been sent.");
+            result.innerHTML = `
+                <div class="alert alert-success">
+                    Thank you! Your message has been sent successfully.
+                </div>
+            `;
 
             form.reset();
 
-        }else{
+        } else {
 
-            alert(result.message || "Unable to send message.");
+            result.innerHTML = `
+                <div class="alert alert-danger">
+                     ${data.message || "Unable to send your message."}
+                </div>
+            `;
 
         }
 
-    }catch(error){
+    } catch (error) {
 
-        alert("An error occurred while sending your message.");
+        result.innerHTML = `
+            <div class="alert alert-danger">
+                ❌ Network error. Please try again later.
+            </div>
+        `;
 
     }
 
     button.disabled = false;
-
     button.innerHTML = "Send Message";
 
 });
